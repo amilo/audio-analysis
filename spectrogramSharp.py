@@ -1,15 +1,15 @@
 #!/usr/bin/env python
 #coding: utf-8
 
-#Spectrogram visualisation by Frank Zalkow, original license below:"
-""" This work is licensed under a Creative Commons Attribution 3.0 Unported License.
-    Frank Zalkow, 2012-2013 """
-
 #Plots spectrogram of audio and plots corresponding curve of choice: in this case Sharpness from vamp libxtract"
 """ This work is licensed under a Creative Commons Attribution 3.0 Unported License.
     Alessia Milo, 2018 """
 
 #Takes audio file argument from command line. Works also as batch processor, if you have the corresponding csv files
+
+#Spectrogram visualisation by Frank Zalkow at http://www.frank-zalkow.de/en/code-snippets/create-audio-spectrograms-with-python.html, original license below:"
+""" This work is licensed under a Creative Commons Attribution 3.0 Unported License.
+    Frank Zalkow, 2012-2013 """
 
 import numpy as np
 from matplotlib import pyplot as plt
@@ -102,10 +102,9 @@ def plotstft(audiopath, binsize=2**10, plotpath=None, colormap="viridis"):
     xnumbers = [ int(round(float(x))) for x in numx]
     # plt.xticks(xlocs, ["%.02f" % l for l in ((xlocs*len(samples)/timebins)+(0.5*binsize))/samplerate])
     plt.xticks(xlocs, xnumbers)
-
     ylocs = np.int16(np.round(np.linspace(0, freqbins-1, 11)))
-
     plt.yticks(ylocs, ["%.02f" % freq[i] for i in ylocs])
+    plt.set_title(audiopath + " - Sharpness")
 
     parsedpath = audiopath[0:len(audiopath)-4]
     print parsedpath
