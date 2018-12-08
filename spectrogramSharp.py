@@ -1,7 +1,15 @@
 #!/usr/bin/env python
 #coding: utf-8
+
+#Spectrogram visualisation by Frank Zalkow, original license below:"
 """ This work is licensed under a Creative Commons Attribution 3.0 Unported License.
     Frank Zalkow, 2012-2013 """
+
+#Plots spectrogram of audio and plots corresponding curve of choice: in this case Sharpness from vamp libxtract"
+""" This work is licensed under a Creative Commons Attribution 3.0 Unported License.
+    Alessia Milo, 2018 """
+
+#Takes audio file argument from command line. Works also as batch processor, if you have the corresponding csv files
 
 import numpy as np
 from matplotlib import pyplot as plt
@@ -9,7 +17,6 @@ from matplotlib import pyplot as figure
 import scipy.io.wavfile as wav
 from numpy.lib import stride_tricks
 import sys
-# import wavio
 import csv
 plt.rcParams.update({'font.size': 10})
 
@@ -78,25 +85,11 @@ def plotstft(audiopath, binsize=2**10, plotpath=None, colormap="viridis"):
 
     timebins, freqbins = np.shape(ims)
 
-
-    # ax1 = fig.add_subplot(2,1,1)
-    # fig = plt.figure(figsize=(15, 7.5))
-    # figure(num=None, figsize=(15, 7), dpi=150, facecolor='w', edgecolor='k')
     fig, axes = plt.subplots(nrows=2)
     fig.set_size_inches(18.5, 10.5)
 
-    # fig, (axes[0], axes[1]) = plt.subplots(nrows=2)
-
     im = axes[1].imshow(np.transpose(ims), origin="lower", aspect="auto", cmap=colormap, interpolation="none")
 
-    # ax0.set_title('pcolormesh with levels')
-
-    # axes[1].imshow(np.transpose(ims), origin="lower", aspect="auto", cmap=colormap, interpolation="none")
-
-    # fig.colorbar(im, ax=axes[1])
-
-    # axes[1].colorbar()
-    # #
     plt.xlabel("time (s)")
     plt.ylabel("frequency (hz)")
     plt.xlim([0, timebins-1])
@@ -114,9 +107,9 @@ def plotstft(audiopath, binsize=2**10, plotpath=None, colormap="viridis"):
 
     plt.yticks(ylocs, ["%.02f" % freq[i] for i in ylocs])
 
-    # number = file[11:24] + "sharpness"
     parsedpath = audiopath[0:len(audiopath)-4]
     print parsedpath
+    # here it needs the suffix of the csv file
     csvpath = parsedpath + "_vamp_vamp-libxtract_sharpness_sharpness.csv"
 
     x = []
@@ -130,15 +123,15 @@ def plotstft(audiopath, binsize=2**10, plotpath=None, colormap="viridis"):
 
 
     axes[0].plot(x, y, 200, 'r', label=audiopath, linestyle='-', linewidth=0.5, markersize=1)
-    # axes[0].set_xlabel('Time (seconds)')
-    axes[0].set_ylabel('Sharpness ')
+
+    axes[0].set_ylabel('Sharpness (acum)')
     axes[0].axis([0, 31, 0, 1])
 
     plotpath = audiopath + ".pdf"
 
 
     if plotpath:
-        # plt.savefig(plotpath, bbox_inches="tight", dpi=100)
+        
         plt.savefig(plotpath, dpi=100)
     else:
         plt.show()
