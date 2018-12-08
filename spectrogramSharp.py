@@ -104,7 +104,7 @@ def plotstft(audiopath, binsize=2**10, plotpath=None, colormap="viridis"):
     plt.xticks(xlocs, xnumbers)
     ylocs = np.int16(np.round(np.linspace(0, freqbins-1, 11)))
     plt.yticks(ylocs, ["%.02f" % freq[i] for i in ylocs])
-    plt.set_title(audiopath + " - Sharpness")
+    fig.suptitle(audiopath + " - Sharpness")
 
     parsedpath = audiopath[0:len(audiopath)-4]
     print parsedpath
