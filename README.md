@@ -2,6 +2,8 @@
 
 Download the repository folder.
 
+To achieve the image below ![alt text]
+
 You can run [spectralLoudSub.py](https://github.com/amilo/audio-analysis/blob/master/spectralLoudSub.py) with [aural30sec-001-WLP-mono.wav](https://github.com/amilo/audio-analysis/blob/master/aural30sec-001-WLP-mono.wav) by typing in the terminal ``` python spectralLoudSub.py *mono.wav ```.
 
 This will look for all wave files ending in ``` mono.wav ``` and run the script.
@@ -38,3 +40,5 @@ done
 as in this [file](https://github.com/amilo/audio-analysis/blob/master/runLoudness.sh).
 
 Remember to make the scripts executable ``` chmod +x scriptName.sh``` .
+
+[img]: aural30sec-001-WLP-mono-Subtraction.png "Example Image"
