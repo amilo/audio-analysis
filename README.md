@@ -1,8 +1,10 @@
 # audio-analysis
 
-Download the repository folder.
+Plot the audio-analysis images of this [gallery](https://amilo.github.io/photography/loudness-subtraction.html).
 
 To achieve the image below ![alt text][img]
+
+Clone or fork the repository folder and get into the folder.
 
 Make sure you have a stereo wav file in the folder, like the example ```aural30sec-001-WLP.wav```.
 Make the scripts executable ``` $ chmod +x split-and-mix.sh``` . 
