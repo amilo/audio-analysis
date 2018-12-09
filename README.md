@@ -30,7 +30,7 @@ done
 Now move to ``` yourfolder``` :
 ``` $ cd yourfolder``` 
 
-You have now two choices: (i) you generate new csv [below][# Generate CSV] (ii) you [test][# CSV already generated] the script with the existing csv.
+You have now two choices: (i) you generate new csv [below][#generate-csv] (ii) you [test][# CSV already generated] the script with the existing csv.
 
 # Generate CSV
 
