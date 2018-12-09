@@ -12,8 +12,9 @@ Therefore, we clean the termination.
 
 This might work better generating the files with the [following sox script](https://github.com/amilo/audio-analysis/blob/master/split-and-mix.sh)(create yourfolder first, or sox will complain).
 
-``` #!/bin/bash</code>
-  
+``` 
+#!/bin/bash
+
 for f in *.wav;  
 do 
   sox "$f" -b 16 "yourfolder/${f:0:${#f}-4}-left.wav" remix 1  
