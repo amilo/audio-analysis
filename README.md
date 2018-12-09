@@ -30,7 +30,7 @@ done
 Now move to ``` yourfolder``` :
 ``` $ cd yourfolder``` 
 
-You have now two choices: (i) you generate new csv [below](###generate-csv) with sonic-annotor, (ii) you [test](###csv-already-generated) the script with the csv provided.
+You have now two choices: (i) you generate new csv [below](#generate-csv) with sonic-annotator, (ii) you [test](#csv-already-generated) the script with the csv provided.
 
 ### Generate CSV
 
