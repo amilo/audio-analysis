@@ -30,11 +30,15 @@ done
 Now move to ``` yourfolder``` :
 ``` $ cd yourfolder``` 
 
-You have now two choices: (i) you generate new csv [below](#generate-csv) (ii) you [test](#csv-already-generated) the script with the existing csv.
+You have now two choices: (i) you generate new csv [below](###generate-csv) with sonic-annotor, (ii) you [test](###csv-already-generated) the script with the csv provided.
 
-# Generate CSV
+### Generate CSV
 
-To generate the files with sonic-annotator you need to use a transform file ``` loudness.n3``` like [this](https://github.com/amilo/audio-analysis/blob/master/loudness.n3) and run the following script, that you can find also [here](https://github.com/amilo/audio-analysis/blob/master/runLoudness.sh). You will need to have [sonic-annotator](https://code.soundsoftware.ac.uk/projects/sonic-annotator/wiki) installed. Remember again to make the batch wav file script executable ``` $ chmod +x runLoudness.sh``` or apply the transorm individually ``` $ sonic-annotator -t loudness.n3 *.wav -w csv```. You can use ``` $ sonic-annotator -t loudness.n3 *.wav -w csv --csv-force``` if you are overwiting files.
+You will need to have [sonic-annotator](https://code.soundsoftware.ac.uk/projects/sonic-annotator/wiki) installed. 
+
+To generate the files with sonic-annotator you need to use a transform file ``` loudness.n3``` like [this](https://github.com/amilo/audio-analysis/blob/master/yourfolder/loudness.n3) and run the following script, also [here](https://github.com/amilo/audio-analysis/blob/master/yourfolder/runLoudness.sh). 
+
+Remember again to make the batch wav file script executable ``` $ chmod +x runLoudness.sh```. 
 
 ``` 
 #!/bin/bash
@@ -45,17 +49,26 @@ do
 done
 ``` 
 
-# CSV already generated
+If you want to select only some files apply the transorm from terminal.
+``` $ sonic-annotator -t loudness.n3 *.wav -w csv```
+You can use ``` $ sonic-annotator -t loudness.n3 *.wav -w csv --csv-force``` if you are overwiting csv files.
 
-After generating the files, or to test this example, you can run [spectralLoudSub.py](https://github.com/amilo/audio-analysis/blob/master/spectralLoudSub.py) with [aural30sec-001-WLP-mono.wav](https://github.com/amilo/audio-analysis/blob/master/aural30sec-001-WLP-mono.wav) by typing in the terminal ``` python spectralLoudSub.py *mono.wav ```.
+
+### CSV already generated
+
+After having generated the analysis files, or to test this example, you can run [spectralLoudSub.py][python-script] with [aural30sec-001-WLP-mono.wav][example-wav] by typing in the terminal:
+``` python spectralLoudSub.py *mono.wav ```
 
 This will look for all wave files ending in ``` mono.wav ``` and run the script.
 
 The script plots the spectrogram for the given file and looks for the left and right csv file of the given file removing the last part ```*abcd.wav```.
 
-This is because sonic-annotator transforms a given file in output ``` filetitle.wav_vamp_vamp-libxtract_loudness_loudness.csv ```.
+This is because sonic-annotator transforms a given file in output 
+``` filetitle.wav_vamp_vamp-libxtract_loudness_loudness.csv ```.
 
-Therefore, we clean the termination and read the already generated files for left and right channel. The script takes the data an plots the loudness representation above the spectrogram, plotting the difference between left and right channel, on the Y = 0 axis.
+Therefore, we clean the termination and read the already generated csv files for left and right channel. The script takes the data an plots the loudness representation above the spectrogram, plotting the difference between left and right channel, on the Y = 0 axis.
 
 
 [img]: aural30sec-001-WLP-mono-Subtraction.png "Example Image"
+[python-script]: https://github.com/amilo/audio-analysis/blob/master/spectralLoudSub.py
+[example-wav]: https://github.com/amilo/audio-analysis/blob/master/aural30sec-001-WLP-mono.wav
