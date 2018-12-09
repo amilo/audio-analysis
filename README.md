@@ -2,7 +2,7 @@
 
 Download the repository folder.
 
-To achieve the image below ![alt text]
+To achieve the image below ![alt text][img]
 
 You can run [spectralLoudSub.py](https://github.com/amilo/audio-analysis/blob/master/spectralLoudSub.py) with [aural30sec-001-WLP-mono.wav](https://github.com/amilo/audio-analysis/blob/master/aural30sec-001-WLP-mono.wav) by typing in the terminal ``` python spectralLoudSub.py *mono.wav ```.
 
