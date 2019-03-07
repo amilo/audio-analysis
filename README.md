@@ -11,7 +11,7 @@ Make the scripts executable ``` $ chmod +x split-and-mix.sh``` .
 
 Run in the terminal
 
-``` $ split-and-mix.sh ```
+``` $ ./split-and-mix.sh ```
 
 This will take all the wav files in the repository folder and generate in ``` yourfolder```  the wav files to be analysed in sonic-annotator. The [script](https://github.com/amilo/audio-analysis/blob/master/split-and-mix.sh) uses [sox](http://sox.sourceforge.net/), so you will have to install this first, for example ```brew install sox```.
 
