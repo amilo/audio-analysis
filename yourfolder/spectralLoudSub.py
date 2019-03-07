@@ -121,7 +121,7 @@ def plotstft(audiopath, binsize=2**10, plotpath=None, colormap="Spectral"):
 
     csvpathleft = parsedpath + "-left_vamp_vamp-libxtract_loudness_loudness.csv"
 
-    csvpathright = parsedpath + "-right_vamp_vamp-libxtract_loudness_loudness.csv"
+    csvpathright = parsedpath + "-righ_vamp_vamp-libxtract_loudness_loudness.csv"
 
     x = []
     y = []
